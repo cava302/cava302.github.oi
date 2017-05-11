@@ -1,3 +1,8 @@
+theme: jekyll-theme-cayman
+title: Welcome to cava302's homepage!
+description: Feel free to bookmark this to keep an eye on my project updates.
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/cava302/cava302.github.oi/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
