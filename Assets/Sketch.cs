@@ -6,7 +6,8 @@ public class Sketch : MonoBehaviour {
     //string DataSeat = "treesurveyv3"; 
     // Put your URL here
     //public 
-    string _WebsiteURL = "http://infomgmt192.azurewebsites.net/tables/" + "movies" + "?zumo-api-version=2.0.0";
+	/*Changed the websiteURL to my own, from Azure to link the data from Azure to Unity*/
+	string _WebsiteURL = "http://cava302.azurewebsites.net/tables/ass3?zumo-api-version=2.0.0";
 
     void Start () {
         //Reguest.GET can be called passing in your ODATA url as a string in the form:
@@ -22,16 +23,18 @@ public class Sketch : MonoBehaviour {
         }
 
         //We can now deserialize into an array of objects - in this case the class we created. The deserializer is smart enough to instantiate all the classes and populate the variables based on column name.
-		Movie[] movies = JsonReader.Deserialize<Movie[]>(jsonResponse);
+		AssThree[] ass3 = JsonReader.Deserialize<AssThree[]>(jsonResponse);
 
-		int totalCubes = movies.Length;
+		/*I have changed the total distance to 5*/
+		int totalCubes = ass3.Length;
         int totalDistance = 5;
         int i = 0;
-        //We can now loop through the array of objects and access each object individually
-		foreach (Movie movie in movies)
+        /* code to loop through the array of objects and access each object individually*/
+		foreach (AssThree a3 in ass3)
         {
+			
             //Example of how to use the object
-			Debug.Log("This products name is: " + movie.MovieID);
+			Debug.Log("This products name is: " + a3.CardName);
             float perc = i / (float)totalCubes;
             i++;
             float x = perc * totalDistance;
@@ -40,7 +43,7 @@ public class Sketch : MonoBehaviour {
             GameObject newCube = (GameObject)Instantiate(myPrefab, new Vector3(x, y, z), Quaternion.identity);
             newCube.GetComponent<myCubeScript>().setSize((1.0f - perc) * 2);
             newCube.GetComponent<myCubeScript>().ratateSpeed = perc;
-			newCube.GetComponentInChildren<TextMesh>().text = movie.MovieID;
+		    newCube.GetComponentInChildren<TextMesh>().text = a3.CardName; /*this code allows the CardName to be taken from the data and apper with object*/ 
         }
 	}
 	
