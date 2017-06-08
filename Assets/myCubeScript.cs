@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class myCubeScript : MonoBehaviour {
-	/*RotateSpeed changed to 2.0 to make the cubes spin a little faster, but at the same time not too fast*/
-    public float ratateSpeed = 2.0f;
+
+    public float ratateSpeed = 1.0f;
     public Vector3 spinSpeed = Vector3.zero;
     Vector3 spinAxis = new Vector3(0, 1, 0);
 
